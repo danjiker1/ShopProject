@@ -12,12 +12,14 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Epic("Корзина покупок")
-@Feature("Добавление товаров в корзину")
-@Story("Пользователь добавляет товар в корзину через API")
+@Epic("Shopping Cart")
+@Feature("Add to Cart")
+@Story("User adds product to cart via API")
 @Owner("Daniil")
 @Severity(SeverityLevel.CRITICAL)
-@Link(name = "Сайт магазина", url = "https://demowebshop.tricentis.com/")
+@Link(name = "Website", url = "https://demowebshop.tricentis.com/")
+
+
 public class CartTest extends TestBase{
 
     private CartApi cartApi;
@@ -28,7 +30,7 @@ public class CartTest extends TestBase{
     private final int LAPTOP_ID = 31;
 
     @BeforeEach
-    @Step("Подготовка теста: авторизация и получение куки")
+    @Step("Test setup: authenticate and get cookies")
     public void setUp() {
         cartApi = new CartApi();
         authApi = new AuthApi();
@@ -38,8 +40,8 @@ public class CartTest extends TestBase{
     }
 
     @Test
-    @DisplayName("Добавление товара в корзину через API")
-    @Step("Отправка запроса на добавление товара")
+    @DisplayName("Add product to cart via API")
+    @Description("Verify that product can be successfully added to shopping cart")
     public void addToCart(){
         Response response = cartApi.addToCard(authCookies, LAPTOP_ID, 1);
 

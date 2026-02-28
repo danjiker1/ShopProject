@@ -8,19 +8,19 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@Epic("Авторизация")
-@Feature("Авторизация пользователя")
-@Story("Пользователь успешно авторизуется через API")
+@Epic("Authentication")
+@Feature("User Authorization")
+@Story("User successfully authenticates via API")
 @Owner("Daniil")
 @Severity(SeverityLevel.CRITICAL)
-@Link(name = "Сайт магазина", url = "https://demowebshop.tricentis.com/")
+@Link(name = "Website", url = "https://demowebshop.tricentis.com/")
 
 public class LoginAndGetCookiesTest extends TestBase {
 
 
     @Test
-    @DisplayName("Авторизация и получение cookie")
-    @Step("Отправить корректные данные и получить куки")
+    @DisplayName("Login and get cookies")
+    @Description("This test verifies that user can login via API and receive authentication cookies")
     public void testLoginAndGetCookies(){
 
         AuthApi authApi = new AuthApi();
