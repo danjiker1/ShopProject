@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.12.0'  // плагин Allure
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+
+    // Rest Assured для API тестов
+    testImplementation 'io.rest-assured:rest-assured:5.5.0'
+
+    // Selenide для UI тестов
+    testImplementation 'com.codeborne:selenide:7.13.0'
+
+    // Allure для отчётов
+    testImplementation 'io.qameta.allure:allure-junit5:2.27.0'
+    testImplementation 'io.qameta.allure:allure-selenide:2.27.0'
+
+    // Для работы с JSON
+    testImplementation 'io.rest-assured:json-path:5.5.0'
+
+    // Для проверок
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+}
+
+test {
+    useJUnitPlatform()
+
+    // Настройка Allure
+    systemProperty "allure.results.directory", "build/allure-results"
+}
+
+// Настройка Allure отчёта
+allure {
+    version = '2.33.0'
+    autoconfigure = true
+    aspectjweaver = true
+}
